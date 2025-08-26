@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="TOP_CENTER" prefHeight="500.0" prefWidth="500.0" spacing="10.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.electron.HelloController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <!-- Judul -->
+    <Label text="Form Data Pasien">
+        <font>
+            <Font size="18.0" />
+        </font>
+    </Label>
+
+    <!-- Input Form -->
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" minWidth="100" />
+            <ColumnConstraints minWidth="200" />
+        </columnConstraints>
+
+        <Label text="ID Pasien:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="idField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label text="Nama Pasien:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="namaField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label text="No. KTP:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="ktpField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Alamat:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <TextField fx:id="alamatField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label text="Jenis Kelamin:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+        <ChoiceBox fx:id="jkChoice" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Laki-laki" />
+                    <String fx:value="Perempuan" />
+                </FXCollections>
+            </items>
+        </ChoiceBox>
+
+        <Label text="Tanggal Lahir:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+        <DatePicker fx:id="tglLahirPicker" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+        </rowConstraints>
+    </GridPane>
+
+    <!-- Tombol -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button text="Simpan" onAction="#handleSimpan" />
+        <Button text="Batal" onAction="#handleBatal" />
+        <Button text="Insert" onAction="#handleInsert" />
+        <Button text="Update" onAction="#handleUpdate" />
+    </HBox>
+
+    <!-- Output area untuk menampilkan hasil -->
+    <TextArea fx:id="outputArea" prefHeight="200" prefWidth="400" />
+</VBox>
